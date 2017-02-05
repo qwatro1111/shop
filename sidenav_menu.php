@@ -4,14 +4,14 @@
   <div class="w3-container">
     <h3 class="w3-padding-64"><b>Admin<br>panel</b></h3>
   </div>
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Main</a> 
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Categories</a> 
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Products</a> 
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Add category</a> 
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Edit category</a> 
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Add product</a>
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Edit product</a>
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Orders</a> 
+  <a href="../index.php" onclick="w3_close()" class="w3-padding w3-hover-white">Main</a> 
+  <a href="categories.php" onclick="w3_close()" class="w3-padding w3-hover-white">Categories</a> 
+  <a href="products.php" onclick="w3_close()" class="w3-padding w3-hover-white">Products</a> 
+  <a href="add_category.php" onclick="w3_close()" class="w3-padding w3-hover-white">Add category</a> 
+  <a href="edit_category.php" onclick="w3_close()" class="w3-padding w3-hover-white">Edit category</a> 
+  <a href="add_product.php" onclick="w3_close()" class="w3-padding w3-hover-white">Add product</a>
+  <a href="edit_product.php" onclick="w3_close()" class="w3-padding w3-hover-white">Edit product</a>
+  <a href="orders.php" onclick="w3_close()" class="w3-padding w3-hover-white">Orders</a> 
 </nav>
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
@@ -24,13 +24,14 @@
   <div class="w3-container">
     <h3 class="w3-padding-64"><b>Shop<br>products</b></h3>
   </div>
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Catalogue</a> 
+  <a href="catalogue.php" onclick="w3_close()" class="w3-padding w3-hover-white">Catalogue</a> 
   <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Category</a> 
   <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Concret</a> 
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Cart</a> 
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Checkout</a> 
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Contact</a>
+  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Corf</a> 
+  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Checkout</a>
+  <?php if(!$_SESSION['user_login']):?>
   <a href="authorization.php" onclick="w3_close()" class="w3-padding w3-hover-white">Authorization</a>
+  <?php endif;?>
 </nav>
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
