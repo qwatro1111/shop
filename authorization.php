@@ -1,5 +1,5 @@
 <?php
-include_once 'admincp/function.php';
+include_once 'admincp/function_authorization.php';
 $title="Authorization form";
 $content = "";
 

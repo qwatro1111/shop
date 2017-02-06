@@ -1,5 +1,5 @@
 <?php
-include_once 'admincp/function.php';
+include_once 'admincp/function_authorization.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +28,8 @@ include_once 'admincp/function.php';
 <?php include_once 'sidenav_menu.php';?>
 
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
-
+    <h1><?= $title;?></h1>
+    
 <?= $user_exit;?>
 <!-- Content -->
 <?= $content;?>
