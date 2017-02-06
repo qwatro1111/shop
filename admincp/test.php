@@ -6,7 +6,6 @@ $AVAILABLE_TYPES=array(
     'image/gif',
 );
 
-include_once 'function.php';
 $arr_dir_catalogue = scandir('../catalogue');
 foreach ($arr_dir_catalogue as $catalogue){
     if($catalogue!=='.' && $catalogue!=='..'){
@@ -15,28 +14,7 @@ foreach ($arr_dir_catalogue as $catalogue){
 }
 
 if($_POST['button']){
-    $name_category = filter_input(INPUT_POST, 'name_category');
-    $title = filter_input(INPUT_POST, 'title');
-    $description = filter_input(INPUT_POST, 'description');
-    $image = $_FILES['image'];
-    if(!$name_category){
-        echo "Not selected category!";
-    }else if(!$title){
-        echo "Not enter title!";
-    }else if(!$description){
-        echo "Not enter description!";
-    }else if(!$image['name']){
-        echo "Not selected image!";
-    }else{
-        $product_info = array(
-        'name_category'=>$name_category,
-        'title'=>$title,
-        'description'=>$description,
-        );
-        $product_info = serialize($product_info);
-         file_put_contents("../catalogue/$name_category/product",$product_info, FILE_APPEND);
-        echo "Goot Igor";
-    }
+    include_once 'save_product.php';
 }else{
     echo "<form method='POST' enctype='multipart/form-data'>
             <div class='w3-group'>
@@ -57,3 +35,14 @@ if($_POST['button']){
             <input type='submit' class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' name='button' value='Add product'/>
     </form>";
 }
+$file_test = '../catalogue/dirone/product';
+$handle = fopen($file_test, 'r');
+$arr_arr = array();
+if($handle){
+    while($row = fgets($handle)){
+        $arr_arr[]=unserialize($row);
+    }
+}
+echo '<pre>';
+var_dump($arr_arr);
+echo '</pre>';
