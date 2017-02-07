@@ -1,10 +1,5 @@
 <?php
 $title = 'Add product';
-$AVAILABLE_TYPES=array(
-    'image/jpeg',
-    'image/png',
-    'image/gif',
-);
 
 $arr_dir_catalogue = scandir('../catalogue');
 foreach ($arr_dir_catalogue as $catalogue){
@@ -13,36 +8,37 @@ foreach ($arr_dir_catalogue as $catalogue){
     }
 }
 
-if($_POST['button']){
-    include_once 'save_product.php';
-}else{
-    echo "<form method='POST' enctype='multipart/form-data'>
-            <div class='w3-group'>
-                Choos category
-                <select name='name_category' class='w3-input w3-border'>
-                    $option_category
-                </select>
-            </div>
-            <div class='w3-group'>
-                <input type='text' class='w3-input w3-border' name='title' placeholder='Enter title'/>
-            </div>
-            <div class='w3-group'>
-                <textarea class='w3-input w3-border' name='description' placeholder='Enter description'></textarea>
-            </div>
-            <div class='w3-group'>
-                <label>Loading image.<input type='file' class='w3-input w3-border' name='image'/></label>
-            </div>
-            <input type='submit' class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' name='button' value='Add product'/>
+$content = "<form method='POST'>
+        <div class='w3-group'>
+            <label>Name directory</label>
+            <select class='w3-input w3-border' name='option_category'>
+                $option_category
+            </select>
+        </div>
+        <input type='submit' name='button' class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' value='Delete category'/>
     </form>";
-}
-$file_test = '../catalogue/dirone/product';
-$handle = fopen($file_test, 'r');
-$arr_arr = array();
-if($handle){
-    while($row = fgets($handle)){
-        $arr_arr[]=unserialize($row);
+if($_POST['button']){
+    $option_category = filter_input(INPUT_POST, 'option_category');
+    $file_test = "../catalogue/$option_category/product";
+    if(file_exists($file_test)){
+    $handle = fopen($file_test, 'r'); //=== open directory
+    $arr_product_category = array();
+    if($handle){
+        while($row = fgets($handle)){
+            $arr_product_category[]=unserialize($row);
+        }
+    }
+    foreach($arr_product_category as $products){
+        if(!empty($products)){
+            $content .= "<div>";
+            $content .= "<h3>".$products['title']."</h3>";
+            $content .= "<img src='".$products['img_url']."' width='150' height='150' />";
+            $content .= "</div>";
+        }
+    }
+    fclose($handle); //=== close directory
+    }else{
+        $content .= "Not products!";
     }
 }
-echo '<pre>';
-var_dump($arr_arr);
-echo '</pre>';
+

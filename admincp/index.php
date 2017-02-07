@@ -17,7 +17,7 @@ include_once 'function_authorization.php';
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <style>
-        body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif;background-color: grey;}
+        body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif;}
         body {font-size:16px;}
         .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
         .w3-half img:hover{opacity:1}
@@ -26,6 +26,10 @@ include_once 'function_authorization.php';
             top: 10px;
             right: 10px;
             z-index: 1;
+        }
+        .w3-red, .w3-hover-red:hover{
+            color: grey !important;
+            background: #f1f1f1!important;
         }
     </style>
 </head>
