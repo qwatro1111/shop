@@ -1,6 +1,7 @@
-a:4:{s:13:"name_category";s:6:"dirone";s:5:"title";s:10:"xgnfgnxfgn";s:11:"description";s:19:"dbsdfbdfbxgfnxdgfnx";s:7:"img_url";s:27:"../catalogue/dirone/PHP.png";}
+a:5:{s:13:"name_category";s:6:"dirone";s:5:"title";s:11:"product one";s:11:"description";s:23:"description product one";s:5:"price";s:3:"100";s:7:"img_url";s:28:"../catalogue/dirone/java.png";}
+a:5:{s:13:"name_category";s:6:"dirone";s:5:"title";s:11:"product two";s:11:"description";s:23:"description product two";s:5:"price";s:3:"150";s:7:"img_url";s:35:"../catalogue/dirone/html-css-js.png";}
+a:5:{s:13:"name_category";s:6:"dirone";s:5:"title";s:13:"product three";s:11:"description";s:25:"description product three";s:5:"price";s:3:"200";s:7:"img_url";s:27:"../catalogue/dirone/PHP.png";}
+a:5:{s:13:"name_category";s:6:"dirone";s:5:"title";s:13:"product test ";s:11:"description";s:24:"product test description";s:5:"price";s:2:"10";s:7:"img_url";s:33:"../catalogue/dirone/MySQL.svg.png";}a:5:{s:13:"name_category";s:6:"dirone";s:5:"title";s:12:"product four";s:11:"description";s:24:"description product four";s:5:"price";s:3:"250";s:7:"img_url";s:27:"../catalogue/dirone/30.jpeg";}
 
-a:4:{s:13:"name_category";s:6:"dirone";s:5:"title";s:6:"fgnfgn";s:11:"description";s:17:"dsbfedgfnbdgndfgn";s:7:"img_url";s:28:"../catalogue/dirone/java.png";}
-a:4:{s:13:"name_category";s:6:"dirone";s:5:"title";s:9:"13'231243";s:11:"description";s:17:"dsbfedgfnbdgndfgn";s:7:"img_url";s:28:"../catalogue/dirone/java.png";}
-a:4:{s:13:"name_category";s:6:"dirone";s:5:"title";s:9:"13'231243";s:11:"description";s:13:"dsbfeddvdfbdf";s:7:"img_url";s:28:"../catalogue/dirone/java.png";}
-a:4:{s:13:"name_category";s:6:"dirone";s:5:"title";s:9:"tovar one";s:11:"description";s:21:"description tovar one";s:7:"img_url";s:28:"../catalogue/dirone/java.png";}
+a:5:{s:13:"name_category";s:6:"dirone";s:5:"title";s:12:"test title 2";s:11:"description";s:18:"test description 2";s:5:"price";s:3:"222";s:7:"img_url";s:27:"../catalogue/dirone/31.jpeg";}
+a:5:{s:13:"name_category";s:6:"dirone";s:5:"title";s:15:"test title12321";s:11:"description";s:18:"scavdvs xfsfbsfbsf";s:5:"price";s:2:"23";s:7:"img_url";s:26:"../catalogue/dirone/42.jpg";}a:5:{s:13:"name_category";s:6:"dirone";s:5:"title";s:12:"test title 3";s:11:"description";s:18:"test description 3";s:5:"price";s:3:"333";s:7:"img_url";s:20:"../catalogue/dirone/";}

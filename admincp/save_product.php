@@ -9,6 +9,7 @@ $AVAILABLE_TYPES=array(
     $name_category = filter_input(INPUT_POST, 'name_category');
     $title_product = filter_input(INPUT_POST, 'title');
     $description = filter_input(INPUT_POST, 'description');
+    $price =  filter_input(INPUT_POST, 'price');
     $image = $_FILES['image'];
     if(!$name_category){
         $content = "Not selected category!";
@@ -16,6 +17,8 @@ $AVAILABLE_TYPES=array(
         $content = "Not enter title!";
     }else if(!$description){
         $content = "Not enter description!";
+    }else if(!$price){
+        $content = "Not enter price!";
     }else{
 //======================== loading image =====================================
             if(!isset($_FILES['image'])){
@@ -68,11 +71,12 @@ $AVAILABLE_TYPES=array(
             'name_category'=>$name_category,
                 'title'=>$title_product,
                 'description'=>$description,
+                'price'=>$price,
                 'img_url'=>"../catalogue/$name_category/".$name_files,
                 );
                 $product_info = serialize($product_info);
                 file_put_contents("../catalogue/$name_category/product",$product_info."\n", FILE_APPEND);
-                $content = "Product save in category".$name_category;
+                $content = "Product save in category ".$name_category;
             }else{
                 $content =  "возникла ошибка при сохранении";
             }

@@ -23,6 +23,9 @@ if($_POST['button']){
                 <textarea class='w3-input w3-border' name='description' placeholder='Enter description'></textarea>
             </div>
             <div class='w3-group'>
+                <input type='number' class='w3-input w3-border' name='price' placeholder='Enter price'/>
+            </div>
+            <div class='w3-group'>
                 <label>Loading image.<input type='file' class='w3-input w3-border' name='image'/></label>
             </div>
             <input type='submit' class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' name='button' value='Add product'/>

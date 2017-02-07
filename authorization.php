@@ -31,7 +31,8 @@ if(!$_SESSION['user_login']){
                 if($login_user){
                     $name_user = $login_user;
                     save_name($name_user);
-                    //header('Location:'.$_SERVER['PHP_SELF']);
+                    $url = 'admincp/index.php';
+                    header('Location:'.$url);
                 }
                 $content.= "<p>Greetings, $login!</p>";
             }else{

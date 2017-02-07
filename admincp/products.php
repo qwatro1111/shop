@@ -14,7 +14,7 @@ $content = "<form method='POST'>
                 $option_category
             </select>
         </div>
-        <input type='submit' name='button' class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' value='Delete category'/>
+        <input type='submit' name='button' class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' value='Open category'/>
     </form>";
 if($_POST['button']){
     $option_category = filter_input(INPUT_POST, 'option_category');

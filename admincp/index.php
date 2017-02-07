@@ -1,12 +1,14 @@
 <?php
 $pageid = 1;
 include_once 'function_authorization.php';
-//if(!$_SESSION['user_login']){
-//    $pageid = 0;
-//    $title = "ERROR";
-//    $content = "Error pages!";
-//    $content .= "<a href = '../index.php'>Home page.</a>";
-//}
+if(!$_SESSION['user_login']){
+    $pageid = 0;
+    $URL = '../index.php';
+    header ("Location: $URL");
+    $title = "ERROR";
+    $content = "Error pages!";
+    $content .= "<a href = '../index.php'>Home page.</a>";
+}
 ?>
 <!DOCTYPE html>
 <html>
