@@ -33,6 +33,9 @@ if(!$_SESSION['user_login']){
             color: grey !important;
             background: #f1f1f1!important;
         }
+        .text_align_center{
+            text-align: center;
+        }
     </style>
 </head>
 <body>

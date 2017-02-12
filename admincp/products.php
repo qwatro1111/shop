@@ -30,9 +30,13 @@ if($_POST['button']){
     $content.="<div class='w3-row-padding w3-grayscale'>";
     foreach($arr_product_category as $products){
         if(!empty($products)){
-            $content .= "<div class='w3-light-grey'>";
+            $content .= "<div class='w3-col m4 w3-margin-bottom'>";
+            $content .= "<div class='w3-light-grey text_align_center'>";
             $content .= "<img src='".$products['img_url']."' width='150' height='150' />";
+            $content .= "<div class='w3-container'>";
             $content .= "<div class='w3-container'><h3>".$products['title']."</h3></div>";
+            $content .= "</div>";
+            $content .= "</div>";
             $content .= "</div>";
         }
     }
