@@ -13,6 +13,7 @@ if($_POST['name_directory']){
     if($valie_directory){
         $content = 'Directory exists.';
     }else{
+        //$destination_path = 'pricelists' . DIRECTORY_SEPARATOR . mb_convert_encoding($file['name'], 'Windows-1251', mb_detect_encoding($file['name']));//решение проблем с кодировкой
         mkdir("../catalogue/$name_directory");
         $content = "Created directory - $name_directory.<br/><a href='add_category.php'>Add category</a>";
     }
@@ -20,7 +21,7 @@ if($_POST['name_directory']){
 $content = '<form method="POST">
         <div class="w3-group">
             <label>Name directory</label>
-            <input class="w3-input w3-border" pattern="^[a-zA-Z]+$" maxlength="20" type="text" name="name_directory" required>
+            <input class="w3-input w3-border"  maxlength="20" type="text" name="name_directory" required>
         </div>
             <input type="submit" name="button" class="w3-btn-block w3-padding-large w3-red w3-margin-bottom" value="Save category"/>
     </form>';

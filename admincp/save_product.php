@@ -68,15 +68,15 @@ $AVAILABLE_TYPES=array(
             if(move_uploaded_file($tmp_path, $destination_path)){
             //========== save products ==========
             $product_info = array(
-            'name_category'=>$name_category,
+                'name_category'=>$name_category,
                 'title'=>$title_product,
                 'description'=>$description,
                 'price'=>$price,
                 'img_url'=>"../catalogue/$name_category/".$name_files,
-                );
-                $product_info = serialize($product_info);
-                file_put_contents("../catalogue/$name_category/product",$product_info."\n", FILE_APPEND);
-                $content = "Product save in category ".$name_category;
+            );
+            $product_info = serialize($product_info);
+            file_put_contents("../catalogue/$name_category/product",$product_info."\n", FILE_APPEND);
+            $content = "Product save in category ".$name_category;
             }else{
                 $content =  "возникла ошибка при сохранении";
             }

@@ -92,14 +92,14 @@ if($_POST['option_category']){//======== choose product
     
     $name_category = filter_input(INPUT_POST, 'name_category');
     $title_product = filter_input(INPUT_POST, 'title');
+    $title_product = trim(preg_replace("/\s{2,}/"," ",$title_product));//====== удаляем лишьние пробелы
     $description = filter_input(INPUT_POST, 'description');
     $price = filter_input(INPUT_POST, 'price');
-    if($_FILES['image']){
-        check_images($_FILES['image'], $name_category);
+    $save_image = check_images($_FILES['image'], $name_category);
+    if($save_image == 12 || $save_image == 11){
         $name_files = "../catalogue/$name_category/".$_FILES['image']['name'];
     }else{
         $name_files = filter_input(INPUT_POST, 'image_hidden');
-        echo 'pizdec';
     }
     $product_info = array(
         'name_category'=>$name_category,
