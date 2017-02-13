@@ -14,13 +14,14 @@ if($_POST['button']){
     $name_category = filter_input(INPUT_POST, 'button');
     $way_file = "catalogue/$name_category/product";
     if(file_exists($way_file)){
-    $handle = fopen($way_file, 'r'); //=== open directory
+    $handle = fopen($way_file, 'r'); //=== open directory ===
     $arr_product_category = array();
     if($handle){
         while($row = fgets($handle)){
             $arr_product_category[]=unserialize($row);
         }
     }
+    //=========== show products =============
     $content.="<form method='post'>";
     $content.="<div class='w3-row-padding'>";
     foreach($arr_product_category as $key=>$products){
@@ -40,7 +41,7 @@ if($_POST['button']){
     }
     $content.="</div>";
     $content.="</form>";
-    fclose($handle); //=== close directory
+    fclose($handle); //=== close directory ===
     }else{
         $content .= "Not products!";
     }

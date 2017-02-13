@@ -6,7 +6,7 @@ if(isset($_POST['exit'])){
 function save_name($name_user){
     $_SESSION['user_login'] = $name_user;
 }
-$_SESSION['product_corf'] = "test product_corf";
+
 if($_SESSION['user_login']){
     $user_login = $_SESSION['user_login'];
     if($pageid == 1){
