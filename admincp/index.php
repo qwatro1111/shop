@@ -24,7 +24,7 @@ if(!$_SESSION['user_login']){
         .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
         .w3-half img:hover{opacity:1}
         .block_user{
-            position: fixed;
+            position: absolute;
             top: 10px;
             right: 10px;
             z-index: 1;
