@@ -32,6 +32,7 @@ if($_POST['button']){
                 'description'=>$description,
                 'price'=>$price,
                 'img_url'=>"../catalogue/$name_category/$name_files",
+                'img_name'=>$name_files,
             );
             $product_info = serialize($product_info);
             file_put_contents("../catalogue/$name_category/product",$product_info."\n", FILE_APPEND);

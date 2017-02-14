@@ -36,7 +36,7 @@ function check_images($files_image, $name_category){
         }
     }else if(!in_array($files_image['type'], $AVAILABLE_TYPES)){
         return 9;
-    }else if($files_image['size']>1*1024*1024){
+    }else if($files_image['size']>10*1024*1024){
         return 10;
     }else{
         //попытка загрузки

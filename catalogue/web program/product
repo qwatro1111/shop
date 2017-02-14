@@ -1,0 +1,4 @@
+a:6:{s:13:"name_category";s:11:"web program";s:5:"title";s:3:"php";s:11:"description";s:15:"description php";s:5:"price";s:4:"2000";s:7:"img_url";s:32:"../catalogue/web program/PHP.png";s:8:"img_name";s:7:"PHP.png";}
+a:6:{s:13:"name_category";s:11:"web program";s:5:"title";s:5:"MySQL";s:11:"description";s:17:"description MySQL";s:5:"price";s:4:"1999";s:7:"img_url";s:38:"../catalogue/web program/MySQL.svg.png";s:8:"img_name";s:13:"MySQL.svg.png";}
+a:6:{s:13:"name_category";s:11:"web program";s:5:"title";s:4:"java";s:11:"description";s:16:"description java";s:5:"price";s:4:"1998";s:7:"img_url";s:33:"../catalogue/web program/java.png";s:8:"img_name";s:8:"java.png";}
+a:6:{s:13:"name_category";s:11:"web program";s:5:"title";s:9:"front end";s:11:"description";s:21:"description front end";s:5:"price";s:4:"1997";s:7:"img_url";s:40:"../catalogue/web program/html-css-js.png";s:8:"img_name";s:15:"html-css-js.png";}

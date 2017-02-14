@@ -26,7 +26,7 @@
   </div>
   <a href="catalogue.php" onclick="w3_close()" class="w3-padding w3-hover-white">Catalogue</a> 
   <a href="categories.php" onclick="w3_close()" class="w3-padding w3-hover-white">Category</a> 
-  <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Concret</a> 
+  <!--<a href="concret.php" onclick="w3_close()" class="w3-padding w3-hover-white">Concret</a> -->
   <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Corf</a> 
   <a href="#" onclick="w3_close()" class="w3-padding w3-hover-white">Checkout</a>
   <?php if(!$_SESSION['user_login']):?>

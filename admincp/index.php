@@ -5,9 +5,6 @@ if(!$_SESSION['user_login']){
     $pageid = 0;
     $URL = '../index.php';
     header ("Location: $URL");
-    $title = "ERROR";
-    $content = "Error pages!";
-    $content .= "<a href = '../index.php'>Home page.</a>";
 }
 ?>
 <!DOCTYPE html>

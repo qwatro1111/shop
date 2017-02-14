@@ -15,7 +15,7 @@ if($_POST['button']){
     }
     //=========== show products =============
     $content .= "<h3 class='w3-xxxlarge w3-text-red'>Category ".$name_category."</h3>";
-    $content.="<form method='post'>";
+    $content.="<form action='concret.php' method='post'>";
     $content.="<div class='w3-row-padding'>";
     foreach($arr_product_category as $key=>$products){
         if(!empty($products)){
@@ -48,6 +48,7 @@ if($_POST['button']){
                 $arr_product_category = array();
                 if($handle){
                     $content .= "<h3 class='w3-xxxlarge w3-text-red'>Category ".$catalogue."</h3>";
+                    $content.="<form action='concret.php' method='post'>";
                     $content .= "<div class='w3-row-padding'>";
                         while($row = fgets($handle)){
                             $product = unserialize($row);
@@ -66,6 +67,7 @@ if($_POST['button']){
                             }
                         }
                     $content .= "</div>";
+                    $content.="</form>";
                     fclose($handle);
                 }
             }
@@ -81,6 +83,7 @@ if($_POST['button']){
                 $arr_product_category = array();
                 if($handle){
                     $content .= "<h3 class='w3-xxxlarge w3-text-red'>Category ".$catalogue."</h3>";
+                    $content.="<form action='concret.php' method='post'>";
                     $content .= "<div class='w3-row-padding'>";
                         while($row = fgets($handle)){
                             $product = unserialize($row);
@@ -94,11 +97,13 @@ if($_POST['button']){
                                 $content .= "<p>".$product['description']."</p>";
                                 $content .= "<p class='w3-opacity'>".$product['price']." $</p>";
                                 $content .= "<input type='hidden' name='buy' value='".$product['title']."'/>";
+                                $content .= "<input type='hidden' name='category' value='".$catalogue."'/>";
                                 $content .= "<input class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' type='submit' value='Buy product'/>";
                                 $content .= "</div></div></div></div>";
                             }
                         }
                     $content .= "</div>";
+                    $content.="</form>";
                     fclose($handle);
                 }
             }

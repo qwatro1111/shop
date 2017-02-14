@@ -75,6 +75,7 @@ if($_POST['option_category']){//======== choose product
             <div class='w3-group'>
                 <label>To replace loading image.<input type='file' class='w3-input w3-border' name='image'/></label>
                 <input type='hidden' name='image_hidden' value='".$product_atribute['img_url']."'/>
+                <input type='hidden' name='image_name_hidden' value='".$product_atribute['img_name']."'/>
             </div>
             <input type='submit' class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' name='save_product' value='Save product'/>
             <input type='submit' class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' name='delete_product' value='delete product'/>
@@ -98,8 +99,10 @@ if($_POST['option_category']){//======== choose product
     $save_image = check_images($_FILES['image'], $name_category);
     if($save_image == 12 || $save_image == 11){
         $name_files = "../catalogue/$name_category/".$_FILES['image']['name'];
+        $img_name = $_FILES['image']['name'];
     }else{
         $name_files = filter_input(INPUT_POST, 'image_hidden');
+        $img_name = filter_input(INPUT_POST, 'image_name_hidden');
     }
     $product_info = array(
         'name_category'=>$name_category,
@@ -107,6 +110,7 @@ if($_POST['option_category']){//======== choose product
         'description'=>$description,
         'price'=>$price,
         'img_url'=>$name_files,
+        'img_name'=>$img_name,
     );
     $product_info = serialize($product_info);
     $url_file_product = "../catalogue/$name_category/product";    
