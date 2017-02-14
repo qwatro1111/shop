@@ -1,5 +1,4 @@
 <?php
-$title = "Catalogue";
 $content = '';
 $category_in_catalogue = '';
 $arr_dir_catalogue = scandir('catalogue');
@@ -11,6 +10,7 @@ foreach ($arr_dir_catalogue as $catalogue){
     }
 }
 if($_POST['button']){
+    $title = filter_input(INPUT_POST, 'button');
     $name_category = filter_input(INPUT_POST, 'button');
     $way_file = "catalogue/$name_category/product";
     if(file_exists($way_file)){
@@ -22,6 +22,7 @@ if($_POST['button']){
         }
     }
     //=========== show products =============
+    $content .= "<h3 class='w3-xxxlarge w3-text-red'>Category ".$catalogue."</h3>";
     $content.="<form method='post'>";
     $content.="<div class='w3-row-padding'>";
     foreach($arr_product_category as $key=>$products){
@@ -45,8 +46,45 @@ if($_POST['button']){
     }else{
         $content .= "Not products!";
     }
+}else if($_POST['all']){
+    $title = "All products";
+    $arr_dir_catalogue = scandir('catalogue');
+    foreach ($arr_dir_catalogue as $catalogue){
+        if($catalogue!=='.' && $catalogue!=='..'){
+            $file_test = "catalogue/$catalogue/product";
+            if(file_exists($file_test)){
+                $handle = fopen($file_test, 'r'); //=== open directory
+                $arr_product_category = array();
+                if($handle){
+                    $content .= "<h3 class='w3-xxxlarge w3-text-red'>Category ".$catalogue."</h3>";
+                    $content .= "<div class='w3-row-padding'>";
+                        while($row = fgets($handle)){
+                            $product = unserialize($row);
+                            if(!empty($product)){
+                                $content .= "<div class='w3-col m4 w3-margin-bottom'>";
+                                $content .= "<div class='w3-light-grey text_align_center'>";
+                                $content .= "<img src='".$product['img_url']."' width='150' height='150' />";
+                                $content .= "<div class='w3-container'>";
+                                $content .= "<div class='w3-container'>";
+                                $content .= "<h3>".$product['title']."</h3>";
+                                $content .= "<p>".$product['description']."</p>";
+                                $content .= "<p class='w3-opacity'>".$product['price']." $</p>";
+                                $content .= "<input type='hidden' name='buy' value='".$product['title']."'/>";
+                                $content .= "<input class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' type='submit' value='Buy product'/>";
+                                $content .= "</div></div></div></div>";
+                            }
+                        }
+                    $content .= "</div>";
+                    fclose($handle);
+                }
+            }
+        }
+    }
 }else{
     $content = "<form method='POST'>
+        <div class='w3-group'>
+            <input type='submit' name='all' class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' value='All products'/>
+        </div>
             $category_in_catalogue
         </form>";
 }

@@ -1,19 +1,19 @@
 <?php
 include_once 'admincp/function_authorization.php';
-if(!empty($_SESSION['product_corf'])){
-    $product_corf = $_SESSION['product_corf'];
-}else{
-    $product_corf = array();
-}
-$product = filter_input(INPUT_POST, 'buy');
-if($product){
-    $product_corf[]= $product;
-    $_SESSION['product_corf'] = $product_corf;
-    header('Location:'.$_SERVER['PHP_SELF']);
-}else if(isset ($_POST['delete'])){
-    session_destroy();
-    header('Location:'.$_SERVER['PHP_SELF']);
-}
+//if(!empty($_SESSION['product_corf'])){
+//    $product_corf = $_SESSION['product_corf'];
+//}else{
+//    $product_corf = array();
+//}
+//$product = filter_input(INPUT_POST, 'buy');
+//if($product){
+//    $product_corf[]= $product;
+//    $_SESSION['product_corf'] = $product_corf;
+//    header('Location:'.$_SERVER['PHP_SELF']);
+//}else if(isset ($_POST['delete'])){
+//    session_destroy();
+//    header('Location:'.$_SERVER['PHP_SELF']);
+//}
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,12 +53,6 @@ if($product){
 
 <!-- footer -->
 <?php include_once 'footer.php';?>
-<form method="POST">
-    <input type="submit" name="delete" value="Delete product corf"/>
-</form>
-<?php
-var_dump($product_corf);
-?>
 </div>
 </body>
 </html>
