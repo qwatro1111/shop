@@ -2,6 +2,9 @@
 $category = filter_input(INPUT_POST, 'category');
 $product = filter_input(INPUT_POST, 'buy');
 $title = "$product";
+if($product==NULL || $category==NULL){
+    header('Location: categories.php');
+}
 $file_product = "catalogue/$category/product";
 $handle = fopen($file_product, r);
 if($handle){
