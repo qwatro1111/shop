@@ -15,25 +15,30 @@ if($_POST['button']){
     }
     //=========== show products =============
     $content .= "<h3 class='w3-xxxlarge w3-text-red'>Category ".$name_category."</h3>";
-    $content.="<form action='concret.php' method='post'>";
+    
     $content.="<div class='w3-row-padding'>";
     foreach($arr_product_category as $key=>$products){
-        if(!empty($products)){
-            $content .= "<div class='w3-col m4 w3-margin-bottom'>";
-            $content .= "<div class='w3-light-grey text_align_center'>";
-            $content .= "<img src='".$products['img_url']."' width='150' height='150' />";
-            $content .= "<div class='w3-container'>";
-            $content .= "<div class='w3-container'>";
-            $content .= "<h3>".$products['title']."</h3>";
-            $content .= "<p>".$products['description']."</p>";
-            $content .= "<p class='w3-opacity'>".$products['price']." $</p>";
-            $content .= "<input type='hidden' name='buy' value='".$products['title']."'/>";
-            $content .= "<input class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' type='submit' value='Buy product'/>";
-            $content .= "</div></div></div></div>";
-        }
+        $content .= "<div class='w3-col m4 w3-margin-bottom'>";
+        $content.="<form action='concret.php' method='post'>";
+            if(!empty($products)){
+                
+                $content .= "<div class='w3-light-grey text_align_center'>";
+                $content .= "<img src='catalogue/$name_category/".$products['img_name']."' width='150' height='150' />";
+                $content .= "<div class='w3-container'>";
+                $content .= "<div class='w3-container'>";
+                $content .= "<h3>".$products['title']."</h3>";
+                $content .= "<p>".$products['description']."</p>";
+                $content .= "<p class='w3-opacity'>".$products['price']." $</p>";
+                $content .= "<input type='hidden' name='buy' value='".$products['title']."'/>";
+                $content .= "<input type='hidden' name='category' value='$name_category'/>";
+                $content .= "<input class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' type='submit' value='Buy product'/>";
+                $content .= "</div></div></div>";
+            }
+        $content.="</form>";
+        $content.="</div>";
     }
     $content.="</div>";
-    $content.="</form>";
+    
     fclose($handle); //=== close directory ===
     }else{
         $content .= "Not products!";
@@ -48,26 +53,31 @@ if($_POST['button']){
                 $arr_product_category = array();
                 if($handle){
                     $content .= "<h3 class='w3-xxxlarge w3-text-red'>Category ".$catalogue."</h3>";
-                    $content.="<form action='concret.php' method='post'>";
+                    
                     $content .= "<div class='w3-row-padding'>";
                         while($row = fgets($handle)){
                             $product = unserialize($row);
+                            $content .= "<div class='w3-col m4 w3-margin-bottom'>";
+                            $content.="<form action='concret.php' method='post'>";
                             if(!empty($product)){
-                                $content .= "<div class='w3-col m4 w3-margin-bottom'>";
+                                
                                 $content .= "<div class='w3-light-grey text_align_center'>";
-                                $content .= "<img src='".$product['img_url']."' width='150' height='150' />";
+                                $content .= "<img src='catalogue/$catalogue/".$product['img_name']."' width='150' height='150' />";
                                 $content .= "<div class='w3-container'>";
                                 $content .= "<div class='w3-container'>";
                                 $content .= "<h3>".$product['title']."</h3>";
                                 $content .= "<p>".$product['description']."</p>";
                                 $content .= "<p class='w3-opacity'>".$product['price']." $</p>";
                                 $content .= "<input type='hidden' name='buy' value='".$product['title']."'/>";
+                                $content .= "<input type='hidden' name='category' value='$catalogue'/>";
                                 $content .= "<input class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' type='submit' value='Buy product'/>";
-                                $content .= "</div></div></div></div>";
+                                $content .= "</div></div></div>";
                             }
+                            $content.="</form>";
+                            $content .= "</div>";
                         }
                     $content .= "</div>";
-                    $content.="</form>";
+                    
                     fclose($handle);
                 }
             }
@@ -83,14 +93,16 @@ if($_POST['button']){
                 $arr_product_category = array();
                 if($handle){
                     $content .= "<h3 class='w3-xxxlarge w3-text-red'>Category ".$catalogue."</h3>";
-                    $content.="<form action='concret.php' method='post'>";
+                    
                     $content .= "<div class='w3-row-padding'>";
                         while($row = fgets($handle)){
                             $product = unserialize($row);
+                            $content .= "<div class='w3-col m4 w3-margin-bottom'>";
+                            $content.="<form action='test.php' method='post'>";
                             if(!empty($product)){
-                                $content .= "<div class='w3-col m4 w3-margin-bottom'>";
+                                
                                 $content .= "<div class='w3-light-grey text_align_center'>";
-                                $content .= "<img src='".$product['img_url']."' width='150' height='150' />";
+                                $content .= "<img src='catalogue/$catalogue/".$product['img_name']."' width='150' height='150' />";
                                 $content .= "<div class='w3-container'>";
                                 $content .= "<div class='w3-container'>";
                                 $content .= "<h3>".$product['title']."</h3>";
@@ -99,11 +111,13 @@ if($_POST['button']){
                                 $content .= "<input type='hidden' name='buy' value='".$product['title']."'/>";
                                 $content .= "<input type='hidden' name='category' value='".$catalogue."'/>";
                                 $content .= "<input class='w3-btn-block w3-padding-large w3-red w3-margin-bottom' type='submit' value='Buy product'/>";
-                                $content .= "</div></div></div></div>";
+                                $content .= "</div></div></div>";
                             }
+                            $content.="</form>";
+                            $content .= "</div>";
                         }
                     $content .= "</div>";
-                    $content.="</form>";
+                    
                     fclose($handle);
                 }
             }
